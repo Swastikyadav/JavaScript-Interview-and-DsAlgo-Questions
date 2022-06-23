@@ -29,7 +29,7 @@ function palindrome2(str) {
 
 	return str.split('').every((char, idx) => char === str[strLength - (idx + 1)]);
 }
-// Solution 2 is not the best way as it compares every element twice.
+// Solution 2 is not the best way, as it compares every element twice.
 
 console.log(palindrome('nitin'));
 console.log(palindrome2('nitin'));
