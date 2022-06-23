@@ -13,21 +13,21 @@
 
 // --Solution 1: Using Array.prototype.reverse() to reverse string
 function palindrome(str) {
-	// Reverse the given string
-	const reversedStr = str.split('').reverse().join('');
+  // Reverse the given string
+  const reversedStr = str.split('').reverse().join('');
 
-	// Return boolean
-	return str === reversedStr;
+  // Return boolean
+  return str === reversedStr;
 }
 
 // --Solution 2: Using Array.prototype.every()
 function palindrome2(str) {
-	// Compare every char at index str[i] with char at index str[str.length - i]
-	// str[i] === str[str.length - i]
+  // Compare every char at index str[i] with char at index str[str.length - i]
+  // str[i] === str[str.length - i]
 
-	const strLength = str.length;
+  const strLength = str.length;
 
-	return str.split('').every((char, idx) => char === str[strLength - (idx + 1)]);
+  return str.split('').every((char, idx) => char === str[strLength - (idx + 1)]);
 }
 // Solution 2 is not the best way, as it compares every element twice.
 
