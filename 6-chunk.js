@@ -34,8 +34,32 @@ function chunk(array, size) {
     2.c. Else add the current element into the chunk.
 */
 
-// Solution 2: 
+// Solution 2: Array.prototype.slice() method
+function chunk2(array, size) {
+  const chunkedArray = [];
+
+  let startIdx = 0;
+
+  while(startIdx < array.length) {
+    chunkedArray.push(array.slice(startIdx, size + startIdx));
+    startIdx += size;
+  }
+
+  return chunkedArray;
+}
+
+/*
+  1. Create an empty chunkedArray.
+  2. Create startIndex variable with inital value of 0.
+  3. While startIndex is less than array.length
+    3.a. Push a slice of length "size" from "array" into chunkedArray.
+    3.b. Add "size" to startIndex.
+*/
 
 console.log(chunk([1, 2, 3, 4], 2));
 console.log(chunk([1, 2, 3, 4, 5], 2));
 console.log(chunk([1, 2, 3, 4, 5], 10));
+
+console.log(chunk2([1, 2, 3, 4], 2));
+console.log(chunk2([1, 2, 3, 4, 5], 2));
+console.log(chunk2([1, 2, 3, 4, 5], 10));
