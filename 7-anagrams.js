@@ -12,6 +12,7 @@
   anagrams('Hi there', 'Bye there') -> False
 */
 
+// Solution 1: Using characterMap object.
 // Here we will use the same charMap technique, we used in 4-maxChar.js problem.
 
 function anagrams(stringA, stringB) {
@@ -49,6 +50,29 @@ function characterMapCreatorFunction(str) {
   return charMap;
 }
 
+// Solution 2: Using Array.prototype.sort() method
+function anagrams2(stringA, stringB) {
+  const cleanStrA = stringA
+                    .replace(/[^\w]/g, "")
+                    .toLowerCase()
+                    .split("")
+                    .sort()
+                    .join("");
+
+  const cleanStrB = stringB
+                    .replace(/[^\w]/g, "")
+                    .toLowerCase()
+                    .split("")
+                    .sort()
+                    .join("");
+
+  return cleanStrA === cleanStrB;
+}
+
 console.log(anagrams('rail safety', 'fairy tales'));
 console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
 console.log(anagrams('Hi there', 'Bye there'));
+
+console.log(anagrams2('rail safety', 'fairy tales'));
+console.log(anagrams2('RAIL! SAFETY!', 'fairy tales'));
+console.log(anagrams2('Hi there', 'Bye there'));
