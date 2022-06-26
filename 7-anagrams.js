@@ -52,21 +52,19 @@ function characterMapCreatorFunction(str) {
 
 // Solution 2: Using Array.prototype.sort() method
 function anagrams2(stringA, stringB) {
-  const cleanStrA = stringA
+  return cleanUp(stringA) === cleanUp(stringB);
+}
+
+// Helper cleanUp function
+function cleanUp(str) {
+  const cleanStr = str
                     .replace(/[^\w]/g, "")
                     .toLowerCase()
                     .split("")
                     .sort()
                     .join("");
 
-  const cleanStrB = stringB
-                    .replace(/[^\w]/g, "")
-                    .toLowerCase()
-                    .split("")
-                    .sort()
-                    .join("");
-
-  return cleanStrA === cleanStrB;
+  return cleanStr;
 }
 
 console.log(anagrams('rail safety', 'fairy tales'));
