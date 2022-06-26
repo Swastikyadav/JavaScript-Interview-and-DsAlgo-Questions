@@ -37,6 +37,7 @@ function anagrams(stringA, stringB) {
 // Helper function to build charMap object.
 function characterMapCreatorFunction(str) {
   const charMap = {};
+  // This regex checks if a char is alphabet letter.
   const letterRegex = /^[a-zA-Z]+$/;
 
   str.split("").forEach(char => {
