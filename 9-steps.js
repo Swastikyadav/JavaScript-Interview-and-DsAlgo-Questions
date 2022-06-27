@@ -56,8 +56,28 @@ function steps2(n) {
 }
 
 // Solution 3: Recursive Solution
-function recursiveSteps(n) {
 
+/*
+  1. If (row === n) then we have hit then end of our problem.
+  2. If the "pattern" string has a length === n then we are at the end of row.
+  3. If the length of the "pattern" string is less than or equal to the row number we're wroking on, we add "#", otherwise add a space.
+*/
+
+function recursiveSteps(n, row = 0, pattern = "") {
+  if (n === row) {
+    // End of the row, end of the recursion.
+    return;
+  }
+
+  if (n === pattern.length) {
+    // End of the column
+    console.log(pattern);
+    recursiveSteps(n, row + 1); // At every column end, pattern string is again set to default empty string.
+    return;
+  }
+
+  const addToPattern = pattern.length <= row ? "#" : " ";
+  recursiveSteps(n, row, pattern + addToPattern);
 }
 
 /*
@@ -68,8 +88,8 @@ function recursiveSteps(n) {
   - Do some work. Call your function again, making sure the arguments have changed in some fashion.
 */
 
-console.log(steps2(2));
+console.log(steps(2));
 console.log("------");
 console.log(steps2(3));
 console.log("------");
-console.log(steps2(4));
+console.log(recursiveSteps(4));
