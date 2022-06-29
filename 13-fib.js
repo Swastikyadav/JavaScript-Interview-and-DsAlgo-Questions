@@ -9,6 +9,7 @@
   fib(4) -> 4th fibonacci number === 3
 */
 
+// Solution 1: Iterative Solution (This is how I solved it in the first attempt)
 function fib(n) {
   let fibNumberArray = Array.apply(null, Array(n + 1));
   let defaultFibArray = [0, 1];
@@ -29,6 +30,15 @@ function fib(n) {
   return fibNumberArray[n];
 }
 
-console.log(fib(4));
-console.log(fib(11));
+// Solution 2: Recursive Solution
+function recursiveFib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return recursiveFib(n - 1) + recursiveFib(n - 2);
+}
+
+console.log(recursiveFib(4));
+console.log(recursiveFib(11));
 console.log(fib(52));
