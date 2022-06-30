@@ -30,7 +30,7 @@ function fib(n) {
   return fibNumberArray[n];
 }
 
-// Solution 2: Recursive Solution
+// Solution 2: Recursive Solution - This runs in exponential time complexity.
 function recursiveFib(n) {
   if (n < 2) {
     return n;
@@ -39,6 +39,35 @@ function recursiveFib(n) {
   return recursiveFib(n - 1) + recursiveFib(n - 2);
 }
 
-console.log(recursiveFib(4));
-console.log(recursiveFib(11));
-console.log(fib(52));
+// Solution 3: Memoizing the recursive solution to improve the time complexity.
+
+// Slow Fib Function ----> Memoizer ----> Fast Fib Function
+
+function memoize(fn) {
+  const cache = {};
+
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  }
+}
+
+function memoFib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return memoFib(n - 1) + memoFib(n - 2);
+}
+
+memoFib = memoize(memoFib);
+
+console.log(fib(4));
+console.log(recursiveFib(15));
+console.log(memoFib(52));
