@@ -1,7 +1,9 @@
 /*
-  Create a queue data structure. The queue should be a class with methods 'add' and 'remove'.
+  Create a queue data structure. The queue should be a class with methods 'add' and 'remove', and 'peek'.
 
   Adding to the queue should store an element until it is removed.
+
+  peek returns the last element without actually removing it.
 
   --Examples
 
@@ -24,6 +26,10 @@ class Queue {
   remove() {
     return this.data.pop();
   }
+
+  peek() {
+    return this.data[this.data.length - 1];
+  }
 }
 
 const q = new Queue();
@@ -33,4 +39,6 @@ console.log(q);
 q.add(5);
 q.add(8);
 q.remove();
+console.log(q);
+console.log(q.peek());
 console.log(q);
