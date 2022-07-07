@@ -39,6 +39,26 @@ class LinkedList {
 
     return listSize;
   }
+
+  // GetFirst - Returns the first node (the head) in the linked list.
+  getFirst() {
+    return this.head;
+  }
+
+  // GetLast - Return the last node (the tail) in the linked list.
+  getLast() {
+    let listNode = this.head;
+
+    if (!this.head) return null;
+
+    while (listNode) {
+      if (!listNode.next) return listNode;
+
+      listNode = listNode.next;
+    }
+
+    return listNode;
+  }
 }
 
 // -------------------------
@@ -51,3 +71,5 @@ list.insertFirst(15);
 
 console.log(list);
 console.log(list.size());
+console.log(list.getFirst());
+console.log(list.getLast());
