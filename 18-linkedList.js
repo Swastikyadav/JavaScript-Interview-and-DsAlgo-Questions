@@ -91,6 +91,20 @@ class LinkedList {
 
     previousNode.next = null;
   }
+
+  // insertLast - Insert a node at the last, create a new tail.
+  insertLast(data) {
+    const lastNode = new Node(data);
+    const currentLastNode = this.getLast();
+
+    if (lastNode) {
+      // There are existing nodes in chain.
+      currentLastNode.next = lastNode;
+    } else {
+      // The chain is empty.
+      this.head = new Node(data);
+    }
+  }
 }
 
 // -------------------------
@@ -108,6 +122,8 @@ console.log(list);
 
 // list.clear();
 // list.removeFirst();
-list.removeLast();
+// list.removeLast();
+
+list.insertLast(30);
 
 console.log(list);
