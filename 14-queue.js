@@ -12,6 +12,7 @@
   q.remove(); // returns 1;
 
   Queue is FIFO - First in first out.
+  unshift and pop
 */
 
 class Queue {
