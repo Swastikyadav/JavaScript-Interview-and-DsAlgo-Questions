@@ -105,6 +105,39 @@ class LinkedList {
       this.head = new Node(data);
     }
   }
+
+  // getAt - Get node at a given index.
+  getAt(idx) {
+    const nodeArr = [];
+    let listNode = this.head;
+
+    if (!listNode) return null;
+
+    while (listNode) {
+      nodeArr.push(listNode);
+      listNode = listNode.next;
+    }
+
+    return nodeArr[idx];
+  }
+
+  // removeAt - Remove a node at a given index.
+  removeAt(idx) {
+    if (!this.head) {
+      return;
+    }
+    
+    if (idx === 0) {
+      this.removeFirst();
+      return;
+    };
+
+    const prevNode = this.getAt(idx - 1);
+    
+    if (!prevNode || !prevNode.next) return;
+    
+    prevNode.next = prevNode.next.next; 
+  }
 }
 
 // -------------------------
@@ -125,5 +158,11 @@ console.log(list);
 // list.removeLast();
 
 list.insertLast(30);
+
+console.log(list);
+
+console.log(list.getAt(1));
+
+list.removeAt(1);
 
 console.log(list);
