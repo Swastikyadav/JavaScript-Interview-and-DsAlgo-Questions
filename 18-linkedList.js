@@ -59,6 +59,11 @@ class LinkedList {
 
     return listNode;
   }
+
+  // Clear - Clears all the node, size becomes 0.
+  clear() {
+    this.head = null;
+  }
 }
 
 // -------------------------
@@ -73,3 +78,7 @@ console.log(list);
 console.log(list.size());
 console.log(list.getFirst());
 console.log(list.getLast());
+
+list.clear();
+
+console.log(list);
