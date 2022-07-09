@@ -1,1 +1,1 @@
-# JavaScript Algorithm Interview Questions
+# JavaScript Interview & DsAlgo Questions
