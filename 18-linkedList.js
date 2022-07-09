@@ -160,6 +160,17 @@ class LinkedList {
 
     prevNode.next = newNode;
   }
+
+  // forEach - Implement a forEach method on the linkedList.
+  forEach(callBack) {
+    let listNode = this.head;
+
+    while (listNode) {
+      callBack(listNode);
+
+      listNode = listNode.next;
+    }
+  }
 }
 
 // -------------------------
@@ -185,8 +196,13 @@ console.log(list);
 
 console.log(list.getAt(1));
 
-list.removeAt(1);
+// list.removeAt(1);
 
 list.insertAt(50, 1);
 
 console.log(list);
+
+console.log(list.forEach((node) => console.log(node.data)));
+list.forEach((node) => node.data += 1);
+console.log(list);
+console.log(list.forEach((node) => console.log(node.data)));
