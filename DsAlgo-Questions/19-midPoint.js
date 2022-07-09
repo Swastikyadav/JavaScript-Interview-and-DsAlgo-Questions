@@ -31,6 +31,21 @@ function midPoint(arr) {
   return arr[slow];
 }
 
+// Implementation for linked list.
+/*
+function midPointOfLinkedlist(list) {
+  let slow = 0;
+  let fast = 0;
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+*/
+
 console.log(midPoint(oddArr)); // 9
 console.log(midPoint(evenArr)); // 5
 
