@@ -25,6 +25,7 @@ class LinkedList {
   // Insert first (Assign the resulting node to the head)
   insertFirst(data) {
     this.head = new Node(data, this.head);
+    // this.insertAt(data, 0);
   }
 
   // Size method - Return the number of nodes in the linked list.
@@ -43,6 +44,7 @@ class LinkedList {
   // GetFirst - Returns the first node (the head) in the linked list.
   getFirst() {
     return this.head;
+    // return this.getAt(0);
   }
 
   // GetLast - Return the last node (the tail) in the linked list.
@@ -58,6 +60,8 @@ class LinkedList {
     }
 
     return listNode;
+
+    // return this.getAt(this.size() - 1);
   }
 
   // Clear - Clears all the node, size becomes 0.
