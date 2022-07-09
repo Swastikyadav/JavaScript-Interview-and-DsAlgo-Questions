@@ -34,8 +34,8 @@ function midPoint(arr) {
 // Implementation for linked list.
 /*
 function midPointOfLinkedlist(list) {
-  let slow = 0;
-  let fast = 0;
+  let slow = list.getFirst();
+  let fast = list.getFirst();
 
   while (fast.next && fast.next.next) {
     slow = slow.next;
