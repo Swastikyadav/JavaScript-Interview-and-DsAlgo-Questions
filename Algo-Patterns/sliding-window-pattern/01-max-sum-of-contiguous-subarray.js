@@ -33,3 +33,6 @@ function maximumSumSubArrayofK(arr, k) {
 console.log(maximumSumSubArrayofK([7, 43, 4, 6, 8, 11, 2], 3));
 console.log(maximumSumSubArrayofK([2, 1, 5, 1, 3, 2], 3));
 console.log(maximumSumSubArrayofK([2, 3, 4, 1, 5], 2));
+
+// Time Complexity - O(n)
+// Space Complexity - O(1)
