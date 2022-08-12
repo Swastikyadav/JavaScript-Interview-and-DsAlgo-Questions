@@ -19,11 +19,22 @@ nativePrintNameBind("Delhi", "India");
 // Solution
 Function.prototype.polyBind = function(context, ...args) {
   // 'this' points to printName function
-  let callback = this;
+  // let callback = this;
 
-  return function(...args2) {
-    callback.apply(context, [...args, ...args2]);
-  };
+  // return function(...args2) {
+  //   callback.apply(context, [...args, ...args2]);
+  // };
+
+  return (...args2) => {
+    const symbol = Symbol();
+
+    context[symbol] = this;
+
+    const result = context[symbol](...args, ...args2);
+    delete context[symbol];
+
+    return result;
+  }
 }
 
 // Using polyBind method.

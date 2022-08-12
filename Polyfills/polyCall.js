@@ -18,9 +18,17 @@ printName.call(obj, "Delhi", "India");
 // Solution
 Function.prototype.polyCall = function(context, ...args) {
   // 'this' points to printName function
-  context.fn = this;
+  // context.fn = this;
 
-  return context.fn(...args);
+  // return context.fn(...args);
+
+  const symbol = Symbol();
+  context[symbol] = this;
+
+  const result = context[symbol](...args);
+  delete context[symbol];
+
+  return result;
 }
 
 // Using polyCall method.
