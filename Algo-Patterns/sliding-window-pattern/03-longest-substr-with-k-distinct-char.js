@@ -54,6 +54,39 @@ console.log(longest_substring_with_k_distinct("araaci", 2));
 console.log(longest_substring_with_k_distinct("araaci", 1));
 console.log(longest_substring_with_k_distinct("cbbebi", 3));
 
+// --------- Alternate Solution using while loop the overall concept is same. ------------
+
+function longest_substring_with_k_distinct_01(str, k) {
+  let j = 0;
+  let i = 0;
+  const hashMap = {};
+  let longestLength = 0;
+
+  while(j < str.length) {
+      if (hashMap.hasOwnProperty(str[j])) {
+          hashMap[str[j]]++;
+      } else {
+          hashMap[str[j]] = 1;
+      }
+
+      j++;
+
+      while(Object.keys(hashMap).length > k) {
+          hashMap[str[i]]--;
+          if (hashMap[str[i]] === 0) {
+              delete hashMap[str[i]];
+          }
+
+          i++;
+      };
+
+      longestLength = Math.max(longestLength, j - i); // Not addding "+1" because I incremented j (j++) before inner while loop. If you increment j (j++) after inner while loop caclulate longestLength like this: `Math.max(longestLength, j - i + 1)`.
+  };
+
+  return longestLength;
+};
+
+
 /*
 Time Complexity #
 The time complexity of the above algorithm will be O(N)O(N) where ‘N’ is the number of characters in the input string. The outer for loop runs for all characters and the inner while loop processes each character only once, therefore the time complexity of the algorithm will be O(N+N)O(N+N) which is asymptotically equivalent to O(N)O(N).
