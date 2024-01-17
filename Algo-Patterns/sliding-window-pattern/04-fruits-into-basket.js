@@ -45,6 +45,35 @@ function fruits_into_baskets(fruits) {
 console.log(fruits_into_baskets(['A', 'B', 'C', 'A', 'C']));
 console.log(fruits_into_baskets(['A', 'B', 'C', 'B', 'B', 'C']));
 
+// --------------
+// The above code is buggy. It only works for given test case.
+// Here is the correct solution.
+
+function maxFruitsInBasket(arr) {
+  const baskets = {};
+  let j = 0;
+  let i = 0;
+
+  while(j < arr.length) {
+      if (baskets.hasOwnProperty(arr[j])) {
+          baskets[arr[j]]++;
+      } else {
+          baskets[arr[j]] = 1;
+      }
+
+      while(Object.keys(baskets).length > 2) {
+          delete baskets[Object.keys(baskets)[0]];
+          i++;
+      }
+
+      j++;
+  };
+
+  console.log(baskets);
+
+  return Object.values(baskets).reduce((acc, cv) => acc + cv);
+};
+
 /*
 Time Complexity #
 The time complexity of the above algorithm will be O(N)O(N) where ‘N’ is the number of characters in the input array. The outer for loop runs for all characters and the inner while loop processes each character only once, therefore the time complexity of the algorithm will be O(N+N)O(N+N) which is asymptotically equivalent to O(N)O(N).
