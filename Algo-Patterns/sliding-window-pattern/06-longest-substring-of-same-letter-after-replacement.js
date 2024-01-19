@@ -47,6 +47,35 @@ function length_of_longest_substring(str, k) {
   return maxLength;
 }
 
+// ------------------ Alternate Solution following same patter --------------
+function maxRepeatChar(str, k) {
+  let i = 0;
+  let j = 0;
+  let maxLength = 0;
+  let maxRepeatCharCount = 0;
+  const freqMap = {};
+
+  while(j < str.length) {
+      if (str[j] in freqMap) {
+          freqMap[str[j]]++;
+          maxRepeatCharCount = Math.max(maxRepeatCharCount, freqMap[str[j]]);
+      } else {
+          freqMap[str[j]] = 1;
+      }
+
+      while((j - i + 1 - maxRepeatCharCount) > k) {
+          freqMap[str[i]]--;
+          i++;
+      }
+
+      maxLength = Math.max(maxLength, j - i + 1);
+
+      j++;
+  };
+
+  return maxLength;
+};
+
 console.log(length_of_longest_substring("aabccbb", 2));
 console.log(length_of_longest_substring("abbcb", 1));
 console.log(length_of_longest_substring("abccde", 1));
